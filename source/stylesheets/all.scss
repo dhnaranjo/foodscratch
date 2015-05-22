@@ -12,9 +12,18 @@ $sidebarwidth: 2rem;
 $catwidth: 6rem;
 $catwidthwide: 8rem;
 
+$margin: 5%;
+$leftwidth: 50%;
+$rightwidth: 35%;
+$line-height: 200%;
+
 @font-face {
 	font-family: 'MyriadPro-Regular';
 	src: url('../images/MyriadPro-Regular.woff');
+}
+
+html {
+	font-size: 16px;
 }
 
 body {
@@ -33,7 +42,7 @@ body {
 }
 
 .wrap {
-	margin: 0 1em;
+	margin: 0 $margin;
 }
 
 .round {
@@ -56,83 +65,56 @@ p {
 }
 
 .full {
-	margin: 0 1rem 1rem 1rem;
+	margin: 0 $margin $margin $margin;
 	background: $yellow;
-	width: 22rem;
 }
 
 .left {
 	float: left;
-	margin: 0 0 1rem 1rem;
+	margin: 0 0 $margin $margin;
 	background: $green;
-	width: $catwidth*2 + 1rem;
-}
-
-.right {
-	margin: 0 1em 1em 0;
-	background: $orange;
-	float: right;
-	width: $catwidthwide;
-}
-
-.column {
-	width: $catwidth;
-	vertical-align: top;
-	text-align: left;
-	margin: 0;
-
-	&:first-child { float: left;  }
-	&:nth-child(2) {
-		float: left;
-		position: relative;
-		left: 1rem;
-	}
-	&:last-child { float: right;  }
+	width: $leftwidth;
 }
 
 .group {
 	@extend .round;
-	width: inherit;
-	display: inline-block;
-	background: $green;
-	margin-bottom: 1rem;
-	vertical-align: top;
+	width: $leftwidth/2 - $margin/2;
+}
 
+.right {
+	float: left;
+	margin: 0 $margin $margin $margin;
+	background: $orange;
+	width: $rightwidth;
 }
 
 .vitals, .bills	{
-	margin-bottom: $buttonheight;
+	margin-bottom: 1.75rem;
 }
+// .sidebar {
+// 	width: 20%;
+// 	// display: inline-block;
+// 	float: left;
+// 	height: 18*$buttonheight;
+// 	p {text-shadow: 0.1rem 0.1rem shade($green, 20%)}
 
-.wide {
-	width: $catwidthwide;
-	.group {width: $catwidthwide;}
-	ol {width: $catwidthwide - $sidebarwidth;}
-}
+// 	.vitals &,
+// 	.bills & {
+// 		height: 4*$buttonheight;
+// 		background: $orange;
+// 		p {text-shadow: 0.1rem 0.1rem shade($orange, 20%)}
+// 	}
 
-.sidebar {
-	width: $sidebarwidth;
-	display: inline-block;
-	height: 18*$buttonheight;
-	p {text-shadow: 0.1rem 0.1rem shade($green, 20%)}
-
-	.vitals &,
-	.bills & {
-		height: 4*$buttonheight;
-		background: $orange;
-		p {text-shadow: 0.1rem 0.1rem shade($orange, 20%)}
-	}
-
-	.hh & {height: 8*$buttonheight;}
-
-
-
-}
+// 	.hh & {height: 8*$buttonheight;}
+// }
 
 .rotate {
 	transform-origin: left bottom; 
 	transform: translateX(0.25rem) translateY(-1.5rem) rotate(90deg) ;
-	width: 100vh;
+	white-space: nowrap;
+	position: absolute;
+	margin: 0;
+	text-indent: 2%;
 }
 
 ol {
@@ -140,15 +122,14 @@ ol {
 	float: right;
 	padding: 0;
 	margin: 0;
-	width: $catwidth - $sidebarwidth;
+	width: calc(100% - 2rem);
 }
 
 li {
-	display: block;
+	text-align: left;
 	font-size: 0.8rem;
-	height: $buttonheight;
 	text-indent: 0.5rem;
-	line-height: 2;
+	line-height: 1.75rem;
 
 	&:nth-child(even) {
 		background: $lightblue;
