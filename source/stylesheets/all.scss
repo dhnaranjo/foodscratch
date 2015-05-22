@@ -7,11 +7,6 @@ $yellow: #ffc220;
 $green: #76c043;
 $orange: #f47321;
 
-$buttonheight: 1.75rem;
-$sidebarwidth: 2rem;
-$catwidth: 6rem;
-$catwidthwide: 8rem;
-
 $margin: 5%;
 $leftwidth: 50%;
 $rightwidth: 35%;
@@ -22,27 +17,29 @@ $line-height: 200%;
 	src: url('../images/MyriadPro-Regular.woff');
 }
 
-html {
-	font-size: 16px;
+@media (max-width: 380px) {
+	html {
+		font-size: 4vw;
+	}
+}
+
+@media (min-width: 381px) {
+	html {
+		font-size: 16px;
+	}
 }
 
 body {
-	font-size: 16px;
 	font-family: 'MyriadPro-Regular';
 	color: white;
 }
 
-#card {
+.card {
 	background: $darkblue;
 	width: 4in;
 	max-width: 100vw;
 	margin: auto;
-	overflow: hidden;
-	text-align: center;
-}
-
-.wrap {
-	margin: 0 $margin;
+	padding-bottom: 1%;
 }
 
 .round {
@@ -52,8 +49,6 @@ body {
 
 .instruction {
 	@extend .round;	
-	display: inline-block;
-	
 	p {
 		margin: 0.5rem;
 	}
@@ -65,13 +60,13 @@ p {
 }
 
 .full {
-	margin: 0 $margin $margin $margin;
+	margin: 0 $margin $margin/2 $margin;
 	background: $yellow;
 }
 
 .left {
 	float: left;
-	margin: 0 0 $margin $margin;
+	margin: 0 0 $margin/2 $margin;
 	background: $green;
 	width: $leftwidth;
 }
@@ -83,7 +78,7 @@ p {
 
 .right {
 	float: left;
-	margin: 0 $margin $margin $margin;
+	margin: 0 $margin $margin/2 $margin;
 	background: $orange;
 	width: $rightwidth;
 }
@@ -91,22 +86,10 @@ p {
 .vitals, .bills	{
 	margin-bottom: 1.75rem;
 }
-// .sidebar {
-// 	width: 20%;
-// 	// display: inline-block;
-// 	float: left;
-// 	height: 18*$buttonheight;
-// 	p {text-shadow: 0.1rem 0.1rem shade($green, 20%)}
 
-// 	.vitals &,
-// 	.bills & {
-// 		height: 4*$buttonheight;
-// 		background: $orange;
-// 		p {text-shadow: 0.1rem 0.1rem shade($orange, 20%)}
-// 	}
-
-// 	.hh & {height: 8*$buttonheight;}
-// }
+.hh {
+	background: $green;
+}
 
 .rotate {
 	transform-origin: left bottom; 
@@ -114,7 +97,7 @@ p {
 	white-space: nowrap;
 	position: absolute;
 	margin: 0;
-	text-indent: 2%;
+	text-indent: 1%;
 }
 
 ol {
@@ -130,7 +113,6 @@ li {
 	font-size: 0.8rem;
 	text-indent: 0.5rem;
 	line-height: 1.75rem;
-
 	&:nth-child(even) {
 		background: $lightblue;
 		text-shadow: 0.1rem 0.1rem shade($lightblue, 40%);
