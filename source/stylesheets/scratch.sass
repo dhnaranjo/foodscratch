@@ -1,0 +1,147 @@
+$lightblue: #78b9e7
+$medblue: #007dc6
+$darkblue: #004c91
+$yellow: #ffc220
+$green: #76c043
+$orange: #f47321
+
+$margin: 1rem
+
+@font-face
+  font-family: 'MyriadPro-Regular'
+  src: url("../images/MyriadPro-Regular.woff")
+
+@media (max-width: 380px)
+  html
+    font-size: 4vw
+
+@media (min-width: 381px)
+  html
+    font-size: 16px
+
+.wrap > div
+  float: left
+  max-width: 4in
+  width: 100vw
+  max-height: 9in
+  height: 225vw
+
+.inset
+  height: 100%
+  width: 100%
+
+.front
+  background: $darkblue
+  padding: $margin
+  box-sizing: border-box
+  color: white
+  font-family: 'MyriadPro-Regular'
+  font-size: 0
+  max-height: inherit
+
+  .logo
+    margin: -$margin
+    margin-bottom: 0
+
+  .instruction
+    @extend .round
+    margin-bottom: $margin
+    display: inline-block
+    font-size: 1rem
+    background: $yellow
+    width: 100%
+    p
+      margin-left: 1rem
+
+  .category
+    @extend .round
+    margin-bottom: $margin
+    display: inline-block
+    font-size: 0.85rem
+    ol
+      list-style-type: none
+      margin: 0
+      padding: 0
+      float: right
+      width: calc(100% - 1.75rem)
+      background: gray
+      li
+        line-height: 2
+        text-indent: 0.5rem
+      .colored
+        &:nth-child(even)
+          background: $lightblue
+        &:nth-child(odd)
+          background: $medblue  
+
+  .bills, .vitals
+    margin-bottom: 2em
+
+
+  .left
+    float: left
+    width: 60%
+    .category
+      width: calc(50% - 0.5rem)
+    .rent
+      float: right
+
+  .right
+    float: right
+    width: 35%
+    .category
+      width: 100%
+
+  .rotate
+    font-size: 1rem
+    transform-origin: left bottom
+    transform: translateX(0.25rem) translateY(-1.5rem) rotate(90deg)
+    white-space: nowrap
+    position: absolute
+    margin: 0
+    text-indent: 1rem
+
+  .rent,.income,.hh, .left .instruction
+    background: $green
+
+  .vitals,.bills, .right .instruction
+    background: $orange
+
+  .round
+    border-radius: 0.75rem
+    overflow: hidden
+
+.back
+  outline: 1px solid black
+  hr
+    border: 0
+    border-bottom: 1px dashed black
+    position: relative
+    top: 50%
+
+
+.info
+  background: #575454
+  position: absolute
+  left: 400px
+
+
+
+.flip .front
+  transform: rotateY(180deg)
+
+.front, .back
+  backface-visibility: hidden
+  position: absolute
+  top: 0
+  left: 0
+  transition: 1s
+  transform-style: preserve-3d
+.front
+  z-index: 2
+  // transform: rotateY(0deg)
+
+.back
+  transform: rotateY(180deg)
+  .flip &
+    transform: rotateY(0deg)

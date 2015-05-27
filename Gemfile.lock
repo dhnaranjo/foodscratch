@@ -7,6 +7,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     bourbon (4.2.3)
       sass (~> 3.4)
       thor
@@ -63,6 +64,10 @@ GEM
       middleman-sprockets (>= 3.1.2)
       sass (>= 3.4.0, < 4.0)
       uglifier (~> 2.5)
+    middleman-blog (3.5.3)
+      addressable (~> 2.3.5)
+      middleman-core (~> 3.2)
+      tzinfo (>= 0.3.0)
     middleman-core (3.3.12)
       activesupport (~> 4.1.0)
       bundler (~> 1.1)
@@ -131,6 +136,7 @@ DEPENDENCIES
   bourbon
   jquery-middleman
   middleman (~> 3.3.12)
+  middleman-blog
   middleman-livereload (~> 3.1.0)
   tzinfo-data
   wdm (~> 0.1.0)
